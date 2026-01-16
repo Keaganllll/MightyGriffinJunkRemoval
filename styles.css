@@ -413,3 +413,19 @@ footer{
     linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
     url("./images/hero-junk.jpg") center/cover no-repeat !important;
 }
+/* FIX: hero rating text visibility */
+.hero .trust,
+.hero .rating,
+.hero .stars,
+.hero span {
+  color: #ffffff !important;
+  opacity: 1;
+}
+
+.hero .trust {
+  background: rgba(0, 0, 0, 0.55);
+  padding: 8px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  font-weight: 500;
+}
