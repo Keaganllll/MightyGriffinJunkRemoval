@@ -1,0 +1,415 @@
+/* =========================
+   BASE (match HVACDEMO feel)
+   ========================= */
+
+:root{
+  --bg: #0f0f10;
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.72);
+  --line: rgba(255,255,255,.14);
+
+  --panel: rgba(255,255,255,.06);
+  --panel2: rgba(255,255,255,.08);
+
+  --white: #fff;
+  --black: #000;
+
+  --primary: #e53935; /* red accent like HVAC demo button */
+  --primaryHover: #ff4a45;
+
+  --container: 1120px;
+}
+
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 90px;
+}
+body{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:#111;
+  background:#fff;
+  line-height:1.45;
+}
+
+/* container */
+.container{
+  width: min(var(--container), calc(100% - 40px));
+  margin: 0 auto;
+}
+
+/* =========================
+   TOP BAR + NAV
+   ========================= */
+
+.top-bar{
+  background:#111;
+  color:rgba(255,255,255,.85);
+  font-size: 13px;
+}
+.top-bar .container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding: 10px 0;
+}
+.top-bar a{
+  color:rgba(255,255,255,.9);
+  text-decoration:none;
+}
+.top-bar a:hover{ text-decoration:underline; }
+
+.nav{
+  background:#f7f7f7;
+  border-bottom: 1px solid rgba(0,0,0,.08);
+}
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 14px 0;
+  gap: 20px;
+}
+.logo strong{
+  display:block;
+  font-weight: 600;
+  color:#111;
+  font-size: 16px;
+}
+.logo span{
+  display:block;
+  margin-top:2px;
+  font-size: 12px;
+  color: rgba(0,0,0,.55);
+}
+
+.nav-links{
+  display:flex;
+  gap: 18px;
+  align-items:center;
+}
+.nav-links a{
+  color: rgba(0,0,0,.7);
+  text-decoration:none;
+  font-size: 14px;
+}
+.nav-links a:hover{ color:#000; }
+
+/* =========================
+   HERO (the big difference)
+   ========================= */
+
+.hero{
+  position: relative;
+  min-height: 70vh;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+}
+
+/* Default hero background (you can swap image easily) */
+.hero{
+  background:
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    url("./images/hero-junk.jpg") center/cover no-repeat;
+}
+/* dark overlay to make text pop */
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,.55);
+}
+
+.hero-content{
+  position:relative;
+  z-index:1;
+  padding: 64px 0;
+  color: var(--white);
+}
+
+.hero h1{
+  margin:0 0 12px 0;
+  font-size: clamp(34px, 4.2vw, 54px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  text-shadow: 0 2px 30px rgba(0,0,0,.35);
+}
+
+.hero p{
+  margin:0 0 22px 0;
+  max-width: 640px;
+  font-size: 15px;
+  color: rgba(255,255,255,.85);
+}
+
+.hero-actions{
+  display:flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items:center;
+  margin-top: 14px;
+}
+
+.trust{
+  margin-top: 14px;
+  font-size: 13px;
+  color: rgba(255,255,255,.82);
+  display:flex;
+  gap: 10px;
+  align-items:center;
+  flex-wrap: wrap;
+}
+
+/* buttons (match HVAC vibe) */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap: 10px;
+  text-decoration:none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid rgba(255,255,255,.35);
+  color: rgba(255,255,255,.95);
+  background: rgba(255,255,255,.10);
+  backdrop-filter: blur(6px);
+}
+
+.btn:hover{ transform: translateY(-1px); }
+.btn:active{ transform: translateY(0px); }
+
+.btn.primary{
+  background: var(--primary);
+  border-color: rgba(0,0,0,.0);
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+.btn.primary:hover{ background: var(--primaryHover); }
+
+.btn.secondary{
+  background: rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.45);
+}
+.btn.tertiary{
+  background: rgba(0,0,0,.20);
+  border-color: rgba(255,255,255,.28);
+}
+
+.btn.large{
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-size: 15px;
+}
+
+/* =========================
+   STRIP (4 items)
+   ========================= */
+
+.strip{
+  background: #f6f6f6;
+  border-top: 1px solid rgba(0,0,0,.06);
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+.strip-grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  padding: 16px 0;
+}
+.strip-item strong{
+  display:block;
+  font-size: 13px;
+  color:#111;
+}
+.strip-item span{
+  display:block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: rgba(0,0,0,.62);
+}
+
+/* =========================
+   SECTIONS + CARDS
+   ========================= */
+
+.section{
+  padding: 54px 0;
+}
+.section h2{
+  margin: 0 0 16px 0;
+  font-size: 24px;
+  letter-spacing: -0.01em;
+}
+.section p{
+  color: rgba(0,0,0,.65);
+  margin-top: 0;
+}
+
+.section.soft{
+  background: #f7f7f7;
+  border-top: 1px solid rgba(0,0,0,.06);
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+
+.grid{
+  margin-top: 18px;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.card{
+  border: 1px solid rgba(0,0,0,.08);
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.04);
+}
+.card h3{
+  margin:0 0 6px 0;
+  font-size: 16px;
+}
+.card p{
+  margin:0;
+  color: rgba(0,0,0,.62);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.card.emergency{
+  background: #121212;
+  border-color: rgba(0,0,0,.0);
+}
+.card.emergency h3{ color:#fff; }
+.card.emergency p{ color: rgba(255,255,255,.78); }
+
+/* =========================
+   QUOTE FORM
+   ========================= */
+
+.quote-form{
+  margin-top: 16px;
+  display:grid;
+  grid-template-columns: 1.2fr 1fr 1.2fr auto;
+  gap: 10px;
+  align-items:center;
+}
+
+.quote-form input,
+.quote-form select{
+  width: 100%;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,.12);
+  padding: 0 12px;
+  font-size: 14px;
+  background: #fff;
+  outline: none;
+}
+.quote-form input:focus,
+.quote-form select:focus{
+  border-color: rgba(0,0,0,.28);
+}
+
+.form-note{
+  margin-top: 10px;
+  font-size: 12px;
+  color: rgba(0,0,0,.55);
+}
+
+/* =========================
+   FINAL CTA + FOOTER
+   ========================= */
+
+.final{
+  background: #111;
+  color: rgba(255,255,255,.92);
+  padding: 54px 0;
+}
+.final h2{
+  margin:0 0 8px 0;
+  font-size: 28px;
+}
+.final p{
+  margin:0 0 16px 0;
+  color: rgba(255,255,255,.75);
+}
+
+footer{
+  background:#0c0c0c;
+  color: rgba(255,255,255,.78);
+  padding: 18px 0;
+}
+.footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.footer a{
+  color: rgba(255,255,255,.9);
+  text-decoration:none;
+}
+.footer a:hover{ text-decoration:underline; }
+.footer-links{
+  display:flex;
+  gap: 14px;
+  align-items:center;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 920px){
+  .strip-grid{ grid-template-columns: 1fr 1fr; }
+  .grid{ grid-template-columns: 1fr; }
+  .quote-form{
+    grid-template-columns: 1fr;
+  }
+  .nav-inner{ flex-direction: column; align-items:flex-start; }
+  .nav-links{ width:100%; justify-content:flex-start; flex-wrap: wrap; }
+}
+.hero h1,
+.hero p,
+.hero .trust {
+  color: #ffffff;
+}
+.hero .btn.secondary {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.hero .btn.outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.6);
+}
+.hero h1 {
+  font-weight: 600;
+}
+/* FORCE hero background image (junk removal) */
+.hero{
+  background:
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+    url("https://images.unsplash.com/photo-1605773527852-c546a8584ea3?auto=format&fit=crop&w=2400&q=60");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* FORCE HERO IMAGE (paste at very bottom) */
+.hero{
+  background:
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    url("./images/hero-junk.jpg") center/cover no-repeat !important;
+}
